@@ -1,0 +1,49 @@
+[build-system]
+requires = ["setuptools>=45", "wheel", "setuptools_scm[toml]>=6.2"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "trapperjoe"
+version = "0.1.0"
+description = "Automated remote monitoring system for wildlife traps using Meshtastic mesh networking"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [
+    {name = "Frank", email = "frank@example.com"}
+]
+requires-python = ">=3.11"
+dependencies = [
+    "meshtastic>=2.0.0",
+    "pypubsub>=4.0.3",
+    "requests>=2.28.0",
+    "schedule>=1.1.10",
+    "python-dotenv>=0.21.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+    "pytest-cov>=4.0",
+    "black>=23.0",
+    "isort>=5.0",
+    "flake8>=6.0",
+]
+
+[project.scripts]
+trapperjoe = "trapperjoe.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[project.urls]
+Homepage = "https://github.com/yourusername/trapper-joe"
+Repository = "https://github.com/yourusername/trapper-joe.git"
+Issues = "https://github.com/yourusername/trapper-joe/issues"
+
+[tool.black]
+line-length = 100
+target-version = ['py311']
+
+[tool.isort]
+profile = "black"
+line_length = 100
